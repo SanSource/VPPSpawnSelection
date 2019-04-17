@@ -1,0 +1,696 @@
+FrameWidgetClass rootFrame {
+ clipchildren 0
+ ignorepointer 0
+ position 0 0.02
+ size 0.9967 0.957
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ {
+  PanelWidgetClass CentrePanel {
+   clipchildren 0
+   ignorepointer 0
+   color 0 0 0 0.5686
+   position 0 0.01
+   size 0.95 0.97
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   draggable 0
+   style rover_sim_blackbox
+   "no focus" 0
+   {
+    SmartPanelWidgetClass TitlePanel {
+     clipchildren 0
+     ignorepointer 1
+     color 0 0 0 1
+     position 0 0
+     size 1 0.04
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style GrungeBorder
+     {
+      TextWidgetClass TitleText {
+       clipchildren 0
+       ignorepointer 1
+       size 1 0.85
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Bold
+       text "Title Here"
+       "exact text" 0
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    ButtonWidgetClass ButtonHide {
+     clipchildren 0
+     color 0 0 0 1
+     size 0.0267 0.0381
+     halign right_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     draggable 0
+     style Editor
+     "no focus" 1
+     {
+      ImageWidgetClass ImgBtn {
+       clipchildren 0
+       ignorepointer 1
+       size 1 1.0059
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       image0 "set:dayz_gui image:Close"
+       mode blend
+       "src alpha" 1
+      }
+     }
+    }
+    PlayerPreviewWidgetClass PlayerPreview {
+     ignorepointer 0
+     position 0 0
+     size 0.5 0.9
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+    }
+    ImageWidgetClass ImgSelection {
+     visible 0
+     clipchildren 0
+     ignorepointer 1
+     color 1 1 1 0.5882
+     position 0 0.025
+     size 1 0.95
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     filter 0
+    }
+    PanelWidgetClass FeetPanel {
+     visible 0
+     clipchildren 1
+     inheritalpha 0
+     color 0 0 0 1
+     position 0.25 0
+     size 0.142 0.168
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     style editor_quad_dark
+     "no focus" 1
+     {
+      ItemPreviewWidgetClass ItemFeet {
+       inheritalpha 0
+       size 0.9 0.75
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      WrapSpacerWidgetClass FeetList {
+       visible 1
+       clipchildren 0
+       keepsafezone 1
+       color 1 0 0 1
+       position 0 0
+       size 1 0.2
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style OutlineFilled
+       "no focus" 1
+      }
+     }
+    }
+    PanelWidgetClass PantsPanel {
+     visible 0
+     clipchildren 1
+     inheritalpha 0
+     color 0 0 0 1
+     position 0.71 0.1227
+     size 0.142 0.168
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     style editor_quad_dark
+     "no focus" 1
+     {
+      ItemPreviewWidgetClass ItemPants {
+       inheritalpha 1
+       size 0.9 0.75
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      WrapSpacerWidgetClass PantsList {
+       visible 1
+       clipchildren 0
+       keepsafezone 1
+       color 1 0 0 0.7843
+       position 0 0
+       size 1 0.2
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style OutlineFilled
+       "no focus" 1
+      }
+     }
+    }
+    PanelWidgetClass TopsPanel {
+     visible 0
+     clipchildren 1
+     inheritalpha 0
+     color 0 0 0 1
+     position 0.59 0.49
+     size 0.142 0.168
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     style editor_quad_dark
+     "no focus" 1
+     {
+      ItemPreviewWidgetClass ItemTop {
+       inheritalpha 1
+       size 0.9 0.75
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      WrapSpacerWidgetClass TopsList {
+       visible 1
+       clipchildren 0
+       keepsafezone 1
+       color 1 0 0 0.7843
+       position 0 0
+       size 1 0.2
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style OutlineFilled
+       "no focus" 1
+      }
+     }
+    }
+    PanelWidgetClass VestPanel {
+     visible 0
+     clipchildren 1
+     inheritalpha 0
+     color 0 0 0 1
+     position 0.733 0.49
+     size 0.142 0.168
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     style editor_quad_dark
+     "no focus" 1
+     {
+      ItemPreviewWidgetClass ItemVest {
+       clipchildren 1
+       inheritalpha 1
+       ignorepointer 0
+       size 0.9 0.75
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      WrapSpacerWidgetClass VestsList {
+       visible 1
+       clipchildren 0
+       keepsafezone 1
+       color 1 0 0 0.7843
+       position 0 0
+       size 1 0.2
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style OutlineFilled
+       "no focus" 1
+      }
+     }
+    }
+    PanelWidgetClass HeadGearPanel {
+     visible 0
+     clipchildren 1
+     inheritalpha 0
+     color 0 0 0 1
+     position 0.2802 0.673
+     size 0.142 0.168
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     style editor_quad_dark
+     "no focus" 1
+     {
+      ItemPreviewWidgetClass ItemHeadGear {
+       inheritalpha 1
+       size 0.9 0.75
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      WrapSpacerWidgetClass HeadGearList {
+       visible 1
+       clipchildren 0
+       keepsafezone 1
+       color 1 0 0 0.7843
+       position 0 0
+       size 1 0.2
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style OutlineFilled
+       "no focus" 1
+      }
+     }
+    }
+    PanelWidgetClass GlovesPanel {
+     visible 0
+     clipchildren 1
+     inheritalpha 0
+     color 0 0 0 1
+     position 0.25 0.2809
+     size 0.142 0.168
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     style editor_quad_dark
+     "no focus" 1
+     {
+      ItemPreviewWidgetClass ItemGloves {
+       inheritalpha 1
+       size 0.9 0.75
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      WrapSpacerWidgetClass GlovesList {
+       visible 1
+       clipchildren 0
+       keepsafezone 1
+       color 1 0 0 0.7843
+       position 0 0
+       size 1 0.2
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style OutlineFilled
+       "no focus" 1
+      }
+     }
+    }
+    PanelWidgetClass BagsPanel {
+     visible 0
+     clipchildren 1
+     inheritalpha 0
+     color 0 0 0 1
+     position 0.175 0.455
+     size 0.142 0.168
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     style editor_quad_dark
+     "no focus" 1
+     {
+      ItemPreviewWidgetClass ItemBag {
+       inheritalpha 1
+       size 0.9 0.75
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      WrapSpacerWidgetClass BagsList {
+       visible 1
+       clipchildren 0
+       keepsafezone 1
+       color 1 0 0 0.7843
+       position 0 0
+       size 1 0.2
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style OutlineFilled
+       "no focus" 1
+      }
+     }
+    }
+    PanelWidgetClass FacePanel {
+     visible 0
+     clipchildren 1
+     inheritalpha 0
+     color 0 0 0 1
+     position 0.1296 0.673
+     size 0.142 0.168
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     style editor_quad_dark
+     "no focus" 1
+     {
+      ItemPreviewWidgetClass ItemFace {
+       inheritalpha 1
+       size 0.9 0.75
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      WrapSpacerWidgetClass FaceList {
+       visible 1
+       clipchildren 0
+       keepsafezone 1
+       color 1 0 0 0.7843
+       position 0 0
+       size 1 0.2
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style OutlineFilled
+       "no focus" 1
+      }
+     }
+    }
+    ButtonWidgetClass ButtonSavePreset {
+     visible 0
+     position 0.0038 -0.3414
+     size 0.1043 0.035
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Editor
+     "no focus" 1
+     text "Save Preset"
+    }
+    ButtonWidgetClass ButtonRandomize {
+     visible 0
+     position 0.02 0.02
+     size 0.15 0.05
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Editor
+     "no focus" 1
+     text "Randomize"
+    }
+    PanelWidgetClass PanelStaticLoadouts {
+     visible 0
+     inheritalpha 0
+     ignorepointer 0
+     color 0 0 0 0.6863
+     position 0 0
+     size 0.346 0.668
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style rover_sim_black_2
+     {
+      PanelWidgetClass DropDownStopper {
+       ignorepointer 1
+       size 0.5 0.85
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        WrapSpacerWidgetClass StaticLOList {
+         visible 1
+         clipchildren 0
+         keepsafezone 1
+         color 0.6078 0.051 0.051 0.7843
+         size 1 0.05
+         halign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style DayZDefaultPanelTop
+         "no focus" 1
+        }
+       }
+      }
+      ButtonWidgetClass BtnSelectRandSL {
+       visible 1
+       position 0.02 0.02
+       size 0.2543 0.065
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Editor
+       "no focus" 1
+       text "Select Random"
+      }
+      SmartPanelWidgetClass StaticLdTitleWidget {
+       ignorepointer 1
+       color 0 0 0 1
+       size 0.986 0.062
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style GrungeBorder
+       {
+        TextWidgetClass TitleStaticLO {
+         ignorepointer 1
+         size 0.416 0.752
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Bold
+         text "Static Loadouts"
+         "size to text h" 0
+         "size to text v" 0
+         "text halign" center
+         "text valign" center
+        }
+       }
+      }
+     }
+    }
+    PanelWidgetClass CharSettingsPanel {
+     clipchildren 0
+     inheritalpha 1
+     color 0 0 0 1
+     position 0 0.05088
+     size 0.2104 0.0838
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style DayZDefaultPanelTop
+     {
+      PanelWidgetClass character_header {
+       visible 1
+       ignorepointer 1
+       color 0 0 0 0.9608
+       position 0 0.003
+       size 1 0.273
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style DayZDefaultPanelTop
+       {
+        TextWidgetClass character_text {
+         visible 1
+         ignorepointer 1
+         size 0.616 0.77
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Normal
+         text "#layout_character_creation_character"
+         font "gui/fonts/sdf_MetronBook72"
+         "exact text" 0
+         "text halign" center
+         "text valign" center
+        }
+       }
+      }
+      TextWidgetClass TxtGender {
+       ignorepointer 1
+       position 0.01 0.0078
+       size 0.23064 0.32567
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Light
+       text "Gender:"
+      }
+      TextWidgetClass TxtHead {
+       ignorepointer 1
+       position 0.0129 0.3308
+       size 0.163 0.35
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Light
+       text "Head:"
+      }
+      XComboBoxWidgetClass GenderCombo {
+       clipchildren 0
+       position 0 0
+       size 0.785 0.269
+       halign right_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       "no focus" 1
+       items "Male;Female"
+      }
+      PanelWidgetClass PanelStopper {
+       ignorepointer 1
+       position 0 0.65
+       size 0.985 4.769
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        WrapSpacerWidgetClass HeadList {
+         visible 1
+         clipchildren 0
+         keepsafezone 1
+         color 0.6078 0.051 0.051 0.7843
+         position 0.09 0
+         size 0.82 0.06
+         halign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style DayZDefaultPanelTop
+         "no focus" 1
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

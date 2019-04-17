@@ -1,0 +1,317 @@
+FrameWidgetClass rootFrame {
+ clipchildren 0
+ ignorepointer 0
+ position 0 0.02
+ size 0.9967 0.957
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ {
+  PanelWidgetClass CentrePanel {
+   clipchildren 0
+   ignorepointer 0
+   color 0 0 0 0.5686
+   position 0.00277 0.01171
+   size 0.95 0.97
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   draggable 0
+   style rover_sim_blackbox
+   "no focus" 0
+   {
+    SmartPanelWidgetClass TitlePanel {
+     clipchildren 0
+     ignorepointer 1
+     color 0 0 0 1
+     position 0 0
+     size 1 0.04
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style GrungeBorder
+     {
+      TextWidgetClass TitleText {
+       clipchildren 0
+       ignorepointer 1
+       size 1 0.85
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Bold
+       text "Title Here"
+       "exact text" 0
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    ButtonWidgetClass ButtonHide {
+     clipchildren 0
+     color 0 0 0 1
+     size 0.0267 0.0381
+     halign right_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     draggable 0
+     style Editor
+     "no focus" 1
+     {
+      ImageWidgetClass ImgBtn {
+       clipchildren 0
+       ignorepointer 1
+       size 1 1.0059
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       image0 "set:dayz_gui image:Close"
+       mode blend
+       "src alpha" 1
+      }
+     }
+    }
+    MapWidgetClass MapWidget {
+     position 0.0936 0.01885
+     size 0.806 0.958
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+    }
+    PanelWidgetClass PanelPoints {
+     ignorepointer 0
+     position 0 0.07
+     size 0.1898 0.9275
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style rover_sim_black
+     {
+      TextWidgetClass SelectedPoint {
+       ignorepointer 1
+       position 0.01173 0.05317
+       size 0.48777 0.02559
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Bold
+       text "Selected Point:"
+       "size to text h" 1
+       "size to text v" 1
+       "text halign" center
+       "text valign" center
+      }
+      EditBoxWidgetClass InputSelectedPoint {
+       ignorepointer 1
+       color 1 0 0 1
+       position 0.00962 0.04999
+       size 0.564 0.0298
+       halign right_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Editor
+       "no focus" 1
+       text "South Cherno"
+       "limit visible" 1
+       "Default text color" 0.9608 0.9608 0.9608 1
+       "Use default text" 0
+       "exact text" 1
+       font "gui/fonts/etelkatextpro22"
+      }
+      TextWidgetClass Cooldown {
+       ignorepointer 1
+       position 0.0117 0.0932
+       size 0.48777 0.02559
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Bold
+       text "Cooldown Length:"
+       "size to text h" 1
+       "size to text v" 1
+       "text halign" center
+       "text valign" center
+      }
+      EditBoxWidgetClass InputCooldown {
+       ignorepointer 1
+       color 1 0 0 1
+       position 0.01159 0.09249
+       size 0.474 0.0298
+       halign right_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Editor
+       "no focus" 1
+       text "60 minutes"
+       "limit visible" 1
+       "Default text color" 0.9608 0.9608 0.9608 1
+       "Use default text" 0
+       "exact text" 1
+       font "gui/fonts/etelkatextpro22"
+      }
+      TextWidgetClass PositionListTxt {
+       ignorepointer 1
+       position 0 -0.26
+       size 0.4678 0.0256
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Bold
+       text "Positions List:"
+       "size to text h" 1
+       "size to text v" 1
+       "text halign" center
+       "text valign" center
+      }
+      TextWidgetClass StatusTxt {
+       ignorepointer 1
+       position 0.00937 0.13642
+       size 0.4578 0.0256
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Bold
+       text "Status:"
+       "size to text h" 1
+       "size to text v" 1
+       "text halign" center
+       "text valign" center
+      }
+      ImageWidgetClass ImageLock {
+       visible 1
+       disabled 0
+       inheritalpha 0
+       ignorepointer 1
+       position -0.1935 0.1243
+       size 0.1502 0.04872
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       image0 ""
+       mode additive
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+      }
+      CheckBoxWidgetClass ChkRandPoint {
+       color 1 0 0 1
+       position 0.16851 0.19234
+       size 0.83005 0.03512
+       halign right_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Default
+       text "Pick Random Position"
+      }
+      EditBoxWidgetClass InputCLCount {
+       visible 0
+       ignorepointer 1
+       color 1 0 0 1
+       position 0.0116 0.1325
+       size 0.474 0.0298
+       halign right_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Editor
+       "no focus" 1
+       text "60 mins left"
+       "limit visible" 1
+       "Default text color" 0.9608 0.9608 0.9608 1
+       "Use default text" 0
+       "exact text" 1
+       font "gui/fonts/etelkatextpro22"
+      }
+      PanelWidgetClass PanelScrollStopper {
+       ignorepointer 1
+       position 0 0
+       size 1 0.502
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        WrapSpacerWidgetClass PositionsList {
+         visible 1
+         clipchildren 0
+         keepsafezone 1
+         color 0.6078 0.051 0.051 0.7843
+         size 1.0046 0.07
+         halign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style DayZDefaultPanelTop
+         "no focus" 1
+        }
+       }
+      }
+     }
+    }
+    SmartPanelWidgetClass HeaderSpawnPoints {
+     ignorepointer 1
+     color 0 0 0 1
+     position 0 0.0465
+     size 0.1892 0.028
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style GrungeBorder
+     {
+      TextWidgetClass TitleOptions {
+       ignorepointer 1
+       size 0.39 1
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Bold
+       text "Options:"
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+   }
+  }
+ }
+}

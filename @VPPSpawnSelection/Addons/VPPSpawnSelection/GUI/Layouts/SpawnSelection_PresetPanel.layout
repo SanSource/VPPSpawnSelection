@@ -1,0 +1,92 @@
+FrameWidgetClass rootFrame {
+ clipchildren 0
+ ignorepointer 0
+ position 0 0.02
+ size 0.9967 0.957
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ {
+  PanelWidgetClass CentrePanel {
+   clipchildren 0
+   ignorepointer 0
+   color 0 0 0 0.5686
+   position 0 0.01
+   size 0.95 0.97
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   draggable 0
+   style rover_sim_blackbox
+   "no focus" 0
+   {
+    SmartPanelWidgetClass TitlePanel {
+     clipchildren 0
+     ignorepointer 1
+     color 0 0 0 1
+     position 0 0
+     size 1 0.04
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style GrungeBorder
+     {
+      TextWidgetClass TitleText {
+       clipchildren 0
+       ignorepointer 1
+       size 1 0.85
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Bold
+       text "Title Here"
+       "exact text" 0
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    ButtonWidgetClass ButtonHide {
+     clipchildren 0
+     color 0 0 0 1
+     size 0.0267 0.0381
+     halign right_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     draggable 0
+     style Editor
+     "no focus" 1
+     {
+      ImageWidgetClass ImgBtn {
+       clipchildren 0
+       ignorepointer 1
+       size 1 1.0059
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       image0 "set:dayz_gui image:Close"
+       mode blend
+       "src alpha" 1
+      }
+     }
+    }
+   }
+  }
+ }
+}
