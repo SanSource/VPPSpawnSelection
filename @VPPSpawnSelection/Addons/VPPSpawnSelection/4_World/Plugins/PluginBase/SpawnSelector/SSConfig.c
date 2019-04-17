@@ -6,6 +6,7 @@ class SSConfig extends SpawnSelectorConfigs
 	private int  MAX_LOBBY_TIME;
 	private int  LOGIN_TIME;
 	private bool FORCE_RANDOM_SPAWNS;
+	private ref array<string>     				   ESSENTIAL_ITEMS;
 	private ref array<ref SpawnPointDetails> 	   SPAWN_POINTS;
 	private ref array<ref StaticLoadout>     	   STATIC_LOADOUTS;
 	private ref array<ref CustomizableLoadout>     CUSTOMIZABLE_LOADOUTS_ITEMS;
@@ -28,6 +29,10 @@ class SSConfig extends SpawnSelectorConfigs
 			MAX_LOBBY_TIME		   = 300; //Seconds
 			LOGIN_TIME			   = 15;
 			FORCE_RANDOM_SPAWNS	   = false;
+			ESSENTIAL_ITEMS 	   = new array<string>;
+			ESSENTIAL_ITEMS.Insert("apple");
+			ESSENTIAL_ITEMS.Insert("rag");
+			ESSENTIAL_ITEMS.Insert("rag");
 			//-----
 			SPAWN_POINTS    = new array<ref SpawnPointDetails>;
 			SPAWN_POINTS.Insert(new SpawnPointDetails("SpawnPoint0", Vector(1598.47 ,0,2319.08), 1200.0));
@@ -110,6 +115,10 @@ class SSConfig extends SpawnSelectorConfigs
 			//-----
 			save();
 		}
+	}
+
+	ref array<string> GetEssentialItems(){
+		return ESSENTIAL_ITEMS;
 	}
 
 	vector GetRandomSpawnPoint(){

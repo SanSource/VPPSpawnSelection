@@ -82,6 +82,21 @@ class SpawnSelector extends PluginBase
 			}
 		}
 
+		//Spawn Essential Items
+		ref array<string> m_EssientalITems = SSConfig.Cast(GetPluginManager().SLGetConfigByType(SSConfig)).GetEssentialItems();
+		foreach(string item : m_EssientalITems){
+			EntityAI ItemEntityEE;
+			ItemBase IBItemEE;
+
+			ItemEntityEE = EntityAI.Cast( TargetPlayer.GetInventory().CreateInInventory( item ) );
+			if ( ItemEntityEE == NULL ) return;
+
+			if ( ItemEntityEE.IsInherited( ItemBase ) ){
+                IBItemEE = ItemBase.Cast( ItemEntityEE );
+                IBItemEE.SetupSpawnedItem( IBItemEE, IBItemEE.GetMaxHealth(), IBItemEE.GetQuantityMax() );
+            }
+		}
+
 		GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).Remove(this.SpawnLoadout);
 	}
 
@@ -97,7 +112,7 @@ class SpawnSelector extends PluginBase
         {
         	ref SpawnParams _PARAMS_ = data.param1;
         	if (sender != NULL){
-				GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(this.SpawnLoadout, 2000, false, _PARAMS_, sender);
+				GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(this.SpawnLoadout, 5000, false, _PARAMS_, sender);
         	}
         }
     }
