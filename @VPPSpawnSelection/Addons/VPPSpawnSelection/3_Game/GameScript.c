@@ -124,7 +124,7 @@ modded class DayZGame
 	override void ClientSpawningFinished(bool newChar)
 	{
 		// tell game to continue
-		StoreCTXData();
+		StoreCTXData(newChar);
 		
 		//Toggles logo (loading screen)
 		Mission mission = GetMission();
@@ -149,7 +149,7 @@ modded class DayZGame
 	/*
 		This functions MUST be called to continue the login/respawn
 	*/
-	void StoreCTXData()
+	void StoreCTXData(bool newChar)
 	{
 		ref array<ref Param> params = new array<ref Param>;
 			
@@ -163,7 +163,9 @@ modded class DayZGame
 		params.Insert(spawnParamsClass);
 
 		GetGame().StoreLoginData(params); //This param is handled at server, this MUST match with server!
-		GetRPCManager().SendRPC( "RPC_HandleSpawnEvent", "HandleSpawnEvent", new Param1<ref SpawnParams>(GetSpawnParams()), true); //call to spawn gear
+		if (newChar){
+			GetRPCManager().SendRPC( "RPC_HandleSpawnEvent", "HandleSpawnEvent", new Param1<ref SpawnParams>(GetSpawnParams()), true); //call to spawn gear
+		}
 		DestroySpawnParamsClass();   //Destroy and reset the carrier class for future use.
 	}
 
