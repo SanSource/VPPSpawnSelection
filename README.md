@@ -1,5 +1,5 @@
 
-<img src="https://i.imgur.com/sVQhjLd.jpg" align="right" alt="Headerlogo" height="600px" width="800px">
+<img src="https://i.imgur.com/sVQhjLd.jpg" align="right" alt="Headerlogo" height="auto" width="800px">
 
 # DayZ Vanilla++ Spawn Selection v1.0
 
