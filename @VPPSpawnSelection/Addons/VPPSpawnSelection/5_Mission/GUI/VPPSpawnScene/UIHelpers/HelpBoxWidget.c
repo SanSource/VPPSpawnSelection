@@ -12,7 +12,7 @@ class HelpBoxWidget extends UIScriptedMenu
 
 	void HelpBoxWidget(Widget RootWidget, string TargetWidgetName, string TitleText, string InnerText)
 	{
-		m_Root			= GetGame().GetWorkspace().CreateWidgets( "gui/layouts/DZTest/VPPHelpBox.layout" );
+		m_Root			= GetGame().GetWorkspace().CreateWidgets( "VPPSpawnSelection/GUI/Layouts/VPPHelpBox.layout" );
 
 		m_InfoPanelRoot = Widget.Cast( m_Root.FindAnyWidget( "Info_Panel" ) );
 		m_InfoLabel	    = TextWidget.Cast( m_InfoPanelRoot.FindAnyWidget( "LabelText"  ) );
