@@ -34,50 +34,54 @@ class SpawnSelector extends PluginBase
 	    return PlayerBase.Cast( GetGame().GetObjectByNetworkId( networkIdLowBits, networkIdHighBits ) );
 	}
 	
-	void SpawnLoadout(ref SpawnParams data, ref PlayerIdentity sender)
+	void SpawnLoadout(ref SpawnParams data, ref PlayerBase TargetPlayer)
 	{
-		PlayerBase TargetPlayer = GetPlayerObjectByIdentity(sender);
+		//PlayerBase TargetPlayer = GetPlayerObjectByIdentity(sender);
 		if (SSConfig.Cast(GetPluginManager().SLGetConfigByType(SSConfig)).LoadoutSelectionType() == 1) //CustomizableLoadouts
 		{
 			ref array<string> items = data.GetCLOItems();
 			EntityAI ItemEntity;
 			ItemBase IBItem;
 			foreach(string str : items){
-				if (TargetPlayer){
+				if (TargetPlayer != NULL && str != ""){
 					ItemEntity = EntityAI.Cast( TargetPlayer.GetHumanInventory().CreateInInventory( str ) );
 
-        			if ( ItemEntity == NULL ) continue;
-
-        			if ( ItemEntity.IsInherited( ItemBase ) )
-		            {
-		                IBItem = ItemBase.Cast( ItemEntity );
-		                IBItem.SetupSpawnedItem( IBItem, ItemEntity.GetMaxHealth(), IBItem.GetQuantityMax() );
-		            }
+        			if ( ItemEntity != NULL ){
+        				if ( ItemEntity.IsInherited( ItemBase ) )
+			            {
+			            	if (Class.CastTo( IBItem,ItemEntity )) IBItem.SetupSpawnedItem( IBItem, ItemEntity.GetMaxHealth(), IBItem.GetQuantityMax() );
+			            }
+        			}
 				}
 			}
 		}else{
+			ref SSConfig m_ssConfig;
+			ref StaticLoadout m_StaticLoadout;
+			if (Class.CastTo(m_ssConfig,GetPluginManager().SLGetConfigByType(SSConfig))){
+				m_StaticLoadout = m_ssConfig.GetStaticLoadoutByName(data.GetSLO());
+				if (m_StaticLoadout == NULL || TargetPlayer == NULL) return;
+				ref array<ref LoadOutSlot> LoadoutDetails = m_StaticLoadout.GetLoadoutDetails();
+				foreach(ref LoadOutSlot slot : LoadoutDetails){
+					if (slot.GetSlotName() != ""){
+						ItemBase itemIB;
+						if (slot.GetSlotName() == "Hands"){
+							Class.CastTo(itemIB,TargetPlayer.GetHumanInventory().CreateInHands(slot.GetItemClassName()))
+						}else{
+							Class.CastTo(itemIB,TargetPlayer.GetHumanInventory().CreateInInventory(slot.GetItemClassName()));
+						}
 
-			ref StaticLoadout m_StaticLoadout = SSConfig.Cast(GetPluginManager().SLGetConfigByType(SSConfig)).GetStaticLoadoutByName(data.GetSLO());
-			if (m_StaticLoadout == NULL) return;
+						if (itemIB != NULL){
+							ref array<string> attachments = slot.GetAttachments();
+							foreach(string att : attachments){
+								itemIB.GetInventory().CreateAttachment(att);
+							}
 
-			ref array<ref LoadOutSlot> LoadoutDetails = m_StaticLoadout.GetLoadoutDetails();
-			foreach(ref LoadOutSlot slot : LoadoutDetails){
-				ItemBase itemIB;
-				if (slot.GetSlotName() == "Hands"){
-					Class.CastTo(itemIB,TargetPlayer.GetHumanInventory().CreateInHands(slot.GetItemClassName()))
-				}else{
-					Class.CastTo(itemIB,TargetPlayer.GetHumanInventory().CreateInInventory(slot.GetItemClassName()));
-				}
-
-				if (itemIB == NULL) continue;
-				ref array<string> attachments = slot.GetAttachments();
-				foreach(string att : attachments){
-					itemIB.GetInventory().CreateAttachment(att);
-				}
-
-				ref array<string> inventoryItems = slot.GetCargo();
-				foreach(string inv : inventoryItems){
-					itemIB.GetInventory().CreateInInventory(inv);
+							ref array<string> inventoryItems = slot.GetCargo();
+							foreach(string inv : inventoryItems){
+								itemIB.GetInventory().CreateInInventory(inv);
+							}
+						}
+					}
 				}
 			}
 		}
@@ -88,16 +92,27 @@ class SpawnSelector extends PluginBase
 			EntityAI ItemEntityEE;
 			ItemBase IBItemEE;
 
-			ItemEntityEE = EntityAI.Cast( TargetPlayer.GetInventory().CreateInInventory( item ) );
-			if ( ItemEntityEE == NULL ) return;
-
-			if ( ItemEntityEE.IsInherited( ItemBase ) ){
-                IBItemEE = ItemBase.Cast( ItemEntityEE );
-                IBItemEE.SetupSpawnedItem( IBItemEE, IBItemEE.GetMaxHealth(), IBItemEE.GetQuantityMax() );
-            }
+			if (TargetPlayer == NULL) return;
+			if ( Class.CastTo( ItemEntityEE,TargetPlayer.GetInventory().CreateInInventory( item ) ) ){
+				if ( ItemEntityEE.IsInherited( ItemBase ) ){
+					if (Class.CastTo( IBItemEE,ItemEntityEE )) IBItemEE.SetupSpawnedItem( IBItemEE, IBItemEE.GetMaxHealth(), IBItemEE.GetQuantityMax() );
+	            }
+			}
 		}
+	}
 
-		GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).Remove(this.SpawnLoadout);
+	//Calls to spawn loadout once player ready
+	void CheckReady(ref SpawnParams data, ref PlayerIdentity sender)
+	{
+		PlayerBase TargetPlayer;
+		if (Class.CastTo(TargetPlayer,GetPlayerObjectByIdentity(sender)) && TargetPlayer.IsAlive()){
+			SpawnLoadout(data, TargetPlayer);
+			Print("ready");
+			GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).Remove(this.CheckReady);
+		}else{
+			TargetPlayer = PlayerBase.Cast(GetPlayerObjectByIdentity(sender));
+			Print("not ready");
+		}
 	}
 
 	/*
@@ -110,9 +125,11 @@ class SpawnSelector extends PluginBase
 		
         if (type == CallType.Server)
         {
+        	bool m_PlayerReady = false;
+        	PlayerBase TargetPlayer;
         	ref SpawnParams _PARAMS_ = data.param1;
         	if (sender != NULL){
-				GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(this.SpawnLoadout, 5000, false, _PARAMS_, sender);
+        		GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(this.CheckReady, 1000, true, _PARAMS_, sender);
         	}
         }
     }
