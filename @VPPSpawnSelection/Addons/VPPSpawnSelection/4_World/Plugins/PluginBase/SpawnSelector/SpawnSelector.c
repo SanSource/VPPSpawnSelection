@@ -65,7 +65,7 @@ class SpawnSelector extends PluginBase
 					if (slot.GetSlotName() != ""){
 						ItemBase itemIB;
 						if (slot.GetSlotName() == "Hands"){
-							Class.CastTo(itemIB,TargetPlayer.GetHumanInventory().CreateInHands(slot.GetItemClassName()))
+							Class.CastTo(itemIB,TargetPlayer.GetHumanInventory().CreateInHands(slot.GetItemClassName()));
 						}else{
 							Class.CastTo(itemIB,TargetPlayer.GetHumanInventory().CreateInInventory(slot.GetItemClassName()));
 						}
