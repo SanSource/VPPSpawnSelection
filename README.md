@@ -20,27 +20,27 @@ Vanilla++ is a DayZ workshop add-on which aims to add administration tools by im
 
 ### Client:
 
-- If you are a player and want to play on Vanilla++ servers, please subscribe to [our steam workshop release](https://steamcommunity.com/sharedfiles/filedetails/?id=1578593068), as well as,  our dependency [Community Framework](https://steamcommunity.com/workshop/filedetails/?id=1559212036)
+- If you are a player and want to play on Vanilla++ servers, please subscribe to [our steam workshop release](https://steamcommunity.com/sharedfiles/filedetails/?id=1578593068), as well as,  our dependency [CF](https://steamcommunity.com/workshop/filedetails/?id=1559212036)
 
-- Use the DayZ Launcher and load @VPPSpawnSelection, and @CommunityFramework, or by adding the following to your start-up commandline:
+- Use the DayZ Launcher and load @VPPSpawnSelection, and @CF, or by adding the following to your start-up commandline:
 ```c
--mod=@CommunityFramework;@VPPSpawnSelection
+-mod=@CF;@VPPSpawnSelection
 ```
 
 ### Server:
 - [Subscribe to workshop addon](https://steamcommunity.com/sharedfiles/filedetails/?id=1578593068) and [Community Framework](https://steamcommunity.com/workshop/filedetails/?id=1559212036)
 - Launch DayZ launcher, Find @VPPSpawnSelection, right click, and click "Open Folder"
-- Take the @VPPSpawnSelection, and @CommunityFramework folders, and copy them to the server's root directory.
+- Take the @VPPSpawnSelection, and @CF folders, and copy them to the server's root directory.
 - Take the contents of the Keys folder, which is located inside of both CommunityFramework, and VPPAdminTools, and move those files to the Keys folder, located in the server's root directory.
 - Change your startup to include the following following start-up commandlines arguments:
-``` -mod=@CommunityFramework;@VPPSpawnSelection; -profiles=serverLogs```
+``` -mod=@CF;@VPPSpawnSelection; -profiles=serverLogs```
 
 Note: The mod will generate a config named 'SpawnSelectorConfig.json` after startup. You can edit that on the go...changes will apply instantly no need for a restart.
 
 Set: LOADOUT_SELECTION_TYPE to 1 to get customizable loadouts.
 Set: LOADOUT_SELECTION_TYPE to 2 to get static loadouts.
 Set: FORCE_RANDOM_SPAWNS to 1 to FORCE players to spawn randomly
-use the following json formater to check your config is of valid syntax after editing. https://jsonformatter.curiousconcept.com/
+use the following json formater to check your config is of valid syntax after editing. [JSONEditorOnline](https://jsoneditoronline.org/)
 
 #### Spawn Selection:
  - Give players option to choose startup gear
