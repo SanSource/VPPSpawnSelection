@@ -1,0 +1,194 @@
+ImageSetClass {
+ Name "vppss_models"
+ RefSize 984 984
+ Textures {
+  ImageSetTextureClass {
+   mpix 1
+   path "{05B0E4E79C028C42}VPPSpawnSelection/Addons/VPPSpawnSelection/GUI/Textures/vppss_models.edds"
+  }
+ }
+ Images {
+  ImageSetDefClass SurvivorM_Mirek {
+   Name "SurvivorM_Mirek"
+   Pos 0 0
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Boris {
+   Name "SurvivorM_Boris"
+   Pos 164 0
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Cyril {
+   Name "SurvivorM_Cyril"
+   Pos 328 0
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Denis {
+   Name "SurvivorM_Denis"
+   Pos 492 0
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Elias {
+   Name "SurvivorM_Elias"
+   Pos 656 0
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Francis {
+   Name "SurvivorM_Francis"
+   Pos 820 0
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Guo {
+   Name "SurvivorM_Guo"
+   Pos 0 164
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Hassan {
+   Name "SurvivorM_Hassan"
+   Pos 164 164
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Indar {
+   Name "SurvivorM_Indar"
+   Pos 328 164
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Jose {
+   Name "SurvivorM_Jose"
+   Pos 492 164
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Kaito {
+   Name "SurvivorM_Kaito"
+   Pos 656 164
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Lewis {
+   Name "SurvivorM_Lewis"
+   Pos 820 164
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Manua {
+   Name "SurvivorM_Manua"
+   Pos 0 328
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Niki {
+   Name "SurvivorM_Niki"
+   Pos 164 328
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Oliver {
+   Name "SurvivorM_Oliver"
+   Pos 328 328
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Peter {
+   Name "SurvivorM_Peter"
+   Pos 492 328
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Quinn {
+   Name "SurvivorM_Quinn"
+   Pos 656 328
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Rolf {
+   Name "SurvivorM_Rolf"
+   Pos 820 328
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Seth {
+   Name "SurvivorM_Seth"
+   Pos 0 492
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorM_Taiki {
+   Name "SurvivorM_Taiki"
+   Pos 164 492
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorF_Eva {
+   Name "SurvivorF_Eva"
+   Pos 328 492
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorF_Frida {
+   Name "SurvivorF_Frida"
+   Pos 492 492
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorF_Gabi {
+   Name "SurvivorF_Gabi"
+   Pos 656 492
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorF_Helga {
+   Name "SurvivorF_Helga"
+   Pos 820 492
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorF_Irena {
+   Name "SurvivorF_Irena"
+   Pos 0 656
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorF_Judy {
+   Name "SurvivorF_Judy"
+   Pos 164 656
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorF_Keiko {
+   Name "SurvivorF_Keiko"
+   Pos 328 656
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorF_Linda {
+   Name "SurvivorF_Linda"
+   Pos 492 656
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorF_Maria {
+   Name "SurvivorF_Maria"
+   Pos 656 656
+   Size 164 164
+   Flags 0
+  }
+  ImageSetDefClass SurvivorF_Naomi {
+   Name "SurvivorF_Naomi"
+   Pos 820 656
+   Size 164 164
+   Flags 0
+  }
+ }
+ Groups {
+ }
+}

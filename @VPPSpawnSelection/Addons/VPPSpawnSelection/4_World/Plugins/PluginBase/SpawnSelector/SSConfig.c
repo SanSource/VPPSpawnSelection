@@ -189,6 +189,20 @@ class SSConfig extends SpawnSelectorConfigs
 		return NULL;
 	}
 
+	ref array<string> GetCustomizableItemsDisplayNamesBySlot(string slotname){
+		foreach(ref CustomizableLoadout ld : CUSTOMIZABLE_LOADOUTS_ITEMS){
+			if (ld.GetSlotName() == slotname){
+				ref array<string> names = ld.GetItemClassNames();
+				ref array<string> displayNames = new ref array<string>;
+				foreach (string name : names){
+					displayNames.Insert(g_Game.GetDisplayName(name));
+				}
+				return displayNames;
+			}
+		}
+		return NULL;
+	}
+
 	int LoadoutSelectionType(){
 		return LOADOUT_SELECTION_TYPE;
 	}

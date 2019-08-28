@@ -1,0 +1,754 @@
+FrameWidgetClass menu_root {
+ visible 1
+ inheritalpha 0
+ ignorepointer 0
+ color 0.9373 0.9373 0.9373 1
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ priority 0
+ {
+  PanelWidgetClass panel_map {
+   visible 1
+   clipchildren 0
+   color 0 0 0 1
+   position 0.0033 0
+   size 0.74 0.99
+   halign right_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   scaled 0
+   style rover_sim_black
+   {
+    MapWidgetClass map_widget {
+     visible 1
+     clipchildren 0
+     position 0 0
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     priority 100
+    }
+   }
+  }
+  PanelWidgetClass panel_markers {
+   visible 1
+   color 0 0 0 0.9412
+   position 0.0033 0
+   size 0.25 0.99
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   scaled 0
+   style rover_sim_colorable
+   {
+    TextWidgetClass text_title {
+     ignorepointer 1
+     position 0 0.01
+     size 0.9 0.04
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Normal
+     text "Spawn Selection"
+     font "gui/fonts/metronbook-bold"
+     "exact text" 1
+     text_proportion 0.85
+     "size to text h" 1
+     "size to text v" 0
+    }
+    PanelWidgetClass panel_list_frame {
+     ignorepointer 0
+     color 0 0 0 0.7843
+     position 0 0.11
+     size 0.85 0.87
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style blank
+     {
+      PanelWidgetClass panel_gender {
+       ignorepointer 1
+       position 0 0
+       size 1 0.06
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        ButtonWidgetClass button_female {
+         position 0.2 0
+         size 50 50
+         halign right_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style MenuDefault
+         {
+          ImageWidgetClass image_female {
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           halign right_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           image0 "set:vppss_icons image:female"
+           mode blend
+           "src alpha" 1
+           "no wrap" 1
+           stretch 1
+           "flip u" 0
+           {
+            PanelWidgetClass button_female_outline {
+             ignorepointer 1
+             position 0 0
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style Outline
+            }
+           }
+          }
+         }
+        }
+        ButtonWidgetClass button_male {
+         position 0.201 0
+         size 50 50
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style MenuDefault
+         {
+          ImageWidgetClass image_male {
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           halign right_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           image0 "set:vppss_icons image:male"
+           mode blend
+           "src alpha" 1
+           "no wrap" 1
+           stretch 1
+           "flip u" 0
+           {
+            PanelWidgetClass button_male_outline {
+             ignorepointer 1
+             position 0 0
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style Outline
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      PanelWidgetClass panel_models_female {
+       visible 1
+       ignorepointer 0
+       position 0 0.425
+       size 1 0.07
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      PanelWidgetClass panel_models_male {
+       visible 1
+       ignorepointer 0
+       position 0 0.425
+       size 1 0.07
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      PlayerPreviewWidgetClass playerpreview {
+       ignorepointer 0
+       position 0 0.02
+       size 1 0.42
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      GridSpacerWidgetClass grid_pickers_custom {
+       visible 1
+       ignorepointer 1
+       position 0 0.52
+       size 1 0.3
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       Padding 1
+       Margin 1
+       "Size To Content H" 1
+       Columns 1
+       Rows 8
+       {
+        PanelWidgetClass panel_headgear {
+         visible 1
+         ignorepointer 1
+         position 0.048 0.054
+         size 1 0.258
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          TextWidgetClass text_picker_headgear {
+           ignorepointer 1
+           position 0 0
+           size 0.22 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           style Normal
+           text "Head:"
+           font "gui/fonts/metronbook"
+           "exact text" 0
+           text_proportion 0.7
+           "size to text h" 0
+           "size to text v" 0
+           "text valign" center
+          }
+          PanelWidgetClass panel_picker_headgear {
+           ignorepointer 0
+           position 0.22 0
+           size 0.78 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+          }
+         }
+        }
+        PanelWidgetClass panel_headgear0 {
+         visible 1
+         ignorepointer 1
+         position 0.048 0.054
+         size 1 0.258
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          TextWidgetClass text_picker_eyewear {
+           ignorepointer 1
+           position 0 0
+           size 0.22 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           style Normal
+           text "Eyewear:"
+           font "gui/fonts/metronbook"
+           "exact text" 0
+           text_proportion 0.7
+           "size to text h" 0
+           "size to text v" 0
+           "text valign" center
+          }
+          PanelWidgetClass panel_picker_eyewear {
+           ignorepointer 0
+           position 0.22 0
+           size 0.78 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+          }
+         }
+        }
+        PanelWidgetClass panel_headgear1 {
+         visible 1
+         ignorepointer 1
+         position 0.048 0.054
+         size 1 0.258
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          TextWidgetClass text_picker_body {
+           ignorepointer 1
+           position 0 0
+           size 0.22 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           style Normal
+           text "Body:"
+           font "gui/fonts/metronbook"
+           "exact text" 0
+           text_proportion 0.7
+           "size to text h" 0
+           "size to text v" 0
+           "text valign" center
+          }
+          PanelWidgetClass panel_picker_body {
+           ignorepointer 0
+           position 0.22 0
+           size 0.78 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+          }
+         }
+        }
+        PanelWidgetClass panel_headgear2 {
+         visible 1
+         ignorepointer 1
+         position 0.048 0.054
+         size 1 0.258
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          TextWidgetClass text_picker_vest {
+           ignorepointer 1
+           position 0 0
+           size 0.22 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           style Normal
+           text "Vest:"
+           font "gui/fonts/metronbook"
+           "exact text" 0
+           text_proportion 0.7
+           "size to text h" 0
+           "size to text v" 0
+           "text valign" center
+          }
+          PanelWidgetClass panel_picker_vest {
+           ignorepointer 0
+           position 0.22 0
+           size 0.78 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+          }
+         }
+        }
+        PanelWidgetClass panel_headgear3 {
+         visible 1
+         ignorepointer 1
+         position 0.048 0.054
+         size 1 0.258
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          TextWidgetClass text_picker_back {
+           ignorepointer 1
+           position 0 0
+           size 0.22 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           style Normal
+           text "Bag:"
+           font "gui/fonts/metronbook"
+           "exact text" 0
+           text_proportion 0.7
+           "size to text h" 0
+           "size to text v" 0
+           "text valign" center
+          }
+          PanelWidgetClass panel_picker_back {
+           ignorepointer 0
+           position 0.22 0
+           size 0.78 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+          }
+         }
+        }
+        PanelWidgetClass panel_headgear4 {
+         visible 1
+         ignorepointer 1
+         position 0.048 0.054
+         size 1 0.258
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          TextWidgetClass text_picker_gloves {
+           ignorepointer 1
+           position 0 0
+           size 0.22 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           style Normal
+           text "Gloves:"
+           font "gui/fonts/metronbook"
+           "exact text" 0
+           text_proportion 0.7
+           "size to text h" 0
+           "size to text v" 0
+           "text valign" center
+          }
+          PanelWidgetClass panel_picker_gloves {
+           ignorepointer 0
+           position 0.22 0
+           size 0.78 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+          }
+         }
+        }
+        PanelWidgetClass panel_headgear5 {
+         visible 1
+         ignorepointer 1
+         position 0.048 0.054
+         size 1 0.258
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          TextWidgetClass text_picker_legs {
+           ignorepointer 1
+           position 0 0
+           size 0.22 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           style Normal
+           text "Pants:"
+           font "gui/fonts/metronbook"
+           "exact text" 0
+           text_proportion 0.7
+           "size to text h" 0
+           "size to text v" 0
+           "text valign" center
+          }
+          PanelWidgetClass panel_picker_legs {
+           ignorepointer 0
+           position 0.22 0
+           size 0.78 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+          }
+         }
+        }
+        PanelWidgetClass panel_headgear6 {
+         visible 1
+         ignorepointer 1
+         position 0.048 0.054
+         size 1 0.258
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          TextWidgetClass text_picker_feet {
+           ignorepointer 1
+           position 0 0
+           size 0.22 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           style Normal
+           text "Boots:"
+           font "gui/fonts/metronbook"
+           "exact text" 0
+           text_proportion 0.7
+           "size to text h" 0
+           "size to text v" 0
+           "text valign" center
+          }
+          PanelWidgetClass panel_picker_feet {
+           ignorepointer 0
+           position 0.22 0
+           size 0.78 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+          }
+         }
+        }
+       }
+      }
+      GridSpacerWidgetClass grid_pickers_static {
+       visible 0
+       ignorepointer 1
+       position 0 0.52
+       size 1 0.3
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       Padding 1
+       Margin 1
+       Columns 1
+       Rows 8
+       {
+        PanelWidgetClass panel_loadouts {
+         visible 1
+         ignorepointer 1
+         position 0.048 0.054
+         size 1 0.258
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          TextWidgetClass text_picker_loadouts {
+           ignorepointer 1
+           size 0.17 0.8
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           style Normal
+           text "Loadouts:"
+           font "gui/fonts/metronbook"
+           "exact text" 0
+           text_proportion 0.7
+           "size to text h" 0
+           "size to text v" 0
+           "text valign" center
+          }
+          PanelWidgetClass panel_picker_loadouts {
+           ignorepointer 0
+           position 0.17 0
+           size 0.83 1
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+          }
+         }
+        }
+       }
+      }
+      PanelWidgetClass panel_selectedspawn {
+       ignorepointer 1
+       position 0 0.07
+       size 1 0.08
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        TextWidgetClass text_selectedspawn_label {
+         ignorepointer 1
+         position 0 0
+         size 1 0.5
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "Selected Spawnpoint:"
+         text_proportion 0.7
+         "size to text h" 1
+         "size to text v" 0
+         "text valign" center
+        }
+        TextWidgetClass text_cooldown_label {
+         ignorepointer 1
+         position 0 0.5
+         size 1 0.5
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "Remaining Cooldown:"
+         text_proportion 0.7
+         "size to text h" 1
+         "size to text v" 0
+         "text valign" center
+        }
+        TextWidgetClass text_selectedspawn {
+         ignorepointer 1
+         position 0.5 0
+         size 1 0.5
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "<none>"
+         text_proportion 0.7
+         "size to text h" 1
+         "size to text v" 0
+         "text valign" center
+        }
+        TextWidgetClass text_cooldown {
+         ignorepointer 1
+         position 0.5 0.5
+         size 1 0.5
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "<none>"
+         text_proportion 0.7
+         "size to text h" 1
+         "size to text v" 0
+         "text valign" center
+        }
+       }
+      }
+      ButtonWidgetClass button_spawn {
+       position 0 0
+       size 1 0.05
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       scaled 1
+       style MenuDefault
+       text "Spawn"
+       font "gui/fonts/metron-bold"
+       {
+        PanelWidgetClass button_spawn_outline {
+         ignorepointer 1
+         position 0 0
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Outline
+        }
+       }
+      }
+     }
+    }
+    PanelWidgetClass panel_info {
+     ignorepointer 1
+     position 0 0.05
+     size 0.85 0.05
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     {
+      ImageWidgetClass info_image {
+       ignorepointer 1
+       size 32 32
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:vppss_icons image:info"
+       mode blend
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+      }
+      MultilineTextWidgetClass info_text {
+       ignorepointer 1
+       position 0.05 0
+       size 0.8 0.75
+       halign right_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text "Customize your character and double-click a spawnpoint on the map. Then click \"Spawn\"."
+       font "gui/fonts/metronlight-italic"
+       "exact text" 0
+       "size to text h" 0
+       "size to text v" 0
+       "text valign" center
+       wrap 1
+      }
+     }
+    }
+   }
+  }
+ }
+}

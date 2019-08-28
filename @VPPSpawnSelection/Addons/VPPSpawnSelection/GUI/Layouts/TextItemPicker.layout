@@ -1,0 +1,59 @@
+PanelWidgetClass panel_picker {
+ position 0 0
+ size 1 1
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ {
+  ImageWidgetClass image_left {
+   ignorepointer 0
+   position 0.01 0
+   size 36 36
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   image0 "set:vppss_icons image:arrow_left"
+   mode blend
+   "src alpha" 1
+   "no wrap" 1
+   stretch 1
+  }
+  ImageWidgetClass image_right {
+   ignorepointer 0
+   position 0.01 0
+   size 36 36
+   halign right_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   image0 "set:vppss_icons image:arrow_right"
+   mode blend
+   "src alpha" 1
+   "no wrap" 1
+   stretch 1
+  }
+  TextWidgetClass text_item {
+   ignorepointer 1
+   position 0 0
+   size 0.8 0.9
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   text "Assault Backpack"
+   font "gui/fonts/metronbook"
+   text_proportion 0.8
+   "size to text h" 1
+   "size to text v" 1
+   "text halign" center
+   "text valign" center
+  }
+ }
+}

@@ -1,5 +1,23 @@
 modded class MissionServer
-{
+{    
+	private ref SSConfig m_Config;
+	
+	void MissionServer() {
+		m_Config = GetPluginManager().SLGetConfigByType(SSConfig);
+        GetRPCManager().AddRPC( "RPC_MissionServer", "test", this, SingleplayerExecutionType.Server );
+    }
+
+    // This method is only relevant on the server. It will respond to each client with a bool saying whether or not 3d markers are allowed to be used.
+    void test( CallType type, ref ParamsReadContext ctx, ref PlayerIdentity sender, ref Object target ) {        
+		if (type == CallType.Server) {	
+			if (sender != NULL) {
+				//reload config before sending....to update any changes
+				m_Config.load();
+        		GetRPCManager().SendRPC( "RPC_HandleSettings", "HandleSettings", new Param1<ref SSConfig>(m_Config), true, sender);				
+        	}
+		}
+    }
+	
 	PlayerBase CreatePlayerEnt(PlayerIdentity identity, ParamsReadContext ctx){		
 		Entity playerEnt;
 		string skin;
@@ -25,36 +43,5 @@ modded class MissionServer
 		GetGame().SelectPlayer(identity, m_player);
 
 		return m_player;
-	}
-
-	override PlayerBase OnClientNewEvent(PlayerIdentity identity, vector pos, ParamsReadContext ctx){
-		if (CreatePlayerEnt(identity, ctx)){
-			GetGame().RPCSingleParam(m_player, ERPCs.RPC_CHARACTER_EQUIPPED, NULL, true, m_player.GetIdentity());
-		}
-		return m_player;
-	}
-
-	override void OnEvent(EventType eventTypeId, Param params) 
-	{
-		if (eventTypeId == PreloadEventTypeID)
-		{
-			PreloadEventParams preloadParams;
-			Class.CastTo(preloadParams, params);
-			
-			OnPreloadEvent(preloadParams.param1, preloadParams.param2, preloadParams.param3, preloadParams.param4, preloadParams.param5);
-		}else{
-			super.OnEvent(eventTypeId, params);
-		}
-	}
-	
-	override void OnPreloadEvent(PlayerIdentity identity, out bool useDB, out vector pos, out float yaw, out int queueTime){
-		if (GetHive()){
-			useDB = true;
-		}else{
-			useDB = false;
-			pos = "7500 0.0 7500";
-			yaw = 0;
-		}
-		queueTime = SSConfig.Cast(GetPluginManager().SLGetConfigByType(SSConfig)).GetMaxLobbyTime();
 	}
 };

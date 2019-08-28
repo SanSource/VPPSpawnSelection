@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<modded_inputs>
+    <inputs>
+        <actions>
+            <input name="UAOpenVPPSpawnSelection" loc="Open VPPSpawnSelection" />
+        </actions>
+    </inputs>
+    <preset>
+		<input name="UAOpenVPPSpawnSelection">
+            <btn name="kDivide">
+            </btn>
+        </input>
+    </preset>
+</modded_inputs>

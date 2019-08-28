@@ -19,53 +19,6 @@ modded class DayZGame
 		vpp_CanPlayerSpawn = state;
 	}
 
-	override void OnEvent(EventType eventTypeId, Param params)
-	{
-		if (eventTypeId == ClientSpawningEventTypeID)
-		{
-			ClientSpawningEventParams spawningParams;
-			if (Class.CastTo(spawningParams, params)){
-				//If its a new char then set to use max timer for lobby kick....
-				if (spawningParams.param2){
-					m_TickDownTime = spawningParams.param1;
-				}else{
-					m_TickDownTime = 15; //Login Time for saved chars
-				}
-				OnClientSpawningEvent(m_TickDownTime, spawningParams.param2);
-			}
-
-		}else{
-			super.OnEvent(eventTypeId,params);
-		}
-	}
-
-	/*
-		Called by OnEvent on any spawn event wheather its login or respawn
-	*/
-	override void OnClientSpawningEvent(int queueTime, bool newChar)
-	{
-		/* NOTE: StoreCTXData must be called for game to continue !!! */
-		GetGame().GetUserManager().GetUserDatabaseIdAsync();
-
-		if (newChar)
-		{
-			GetRPCManager().SendRPC( "RPC_GetSettings", "GetSettings", NULL, true);
-			GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.ShowSpawnScene, 1000, true);
-			GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.ClientOnSpawnScreen, 100, true, newChar);
-		}else{
-			// turn the lights off
-			SetEVValue(-5);
-			if (queueTime > 0)
-			{
-				// timer for spawning screen
-				GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.ClientSpawning, 1000, true, newChar);
-			}else{
-				//Triggers only when timer is less than 1
-				ClientSpawningFinished(newChar);
-			}
-		}
-	}
-
 	/*
 		Count down to Show spawn screen ( 5 second wait to get RPC data from server )
 	*/
@@ -92,58 +45,9 @@ modded class DayZGame
 	{
 		if (vpp_CanPlayerSpawn){
 			vpp_CanPlayerSpawn = false;
-			ClientSpawningFinished(newChar);
 			GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(this.ClientOnSpawnScreen);
 			Print("--->> SPAWN SCREEN SAYS PLAYER IS READY...");
 		}
-	}
-
-	/*
-		Called by `OnClientSpawningEvent` every second to count down then exit with `ClientSpawningFinished` & `CancelQueueTime`
-	*/
-	override void ClientSpawning(bool newChar)
-	{
-		// countdown on the spawning screen
-		if (m_TickDownTime >= 0) // count all the way to zero
-		{
-		#ifndef NO_GUI	
-			string text = "Spawning in: " + m_TickDownTime.ToString() + " " + "#dayz_game_seconds" + " (°>°)";
-			GetUIManager().ScreenFadeIn(0, text, FadeColors.BLACK, FadeColors.WHITE);
-		#endif
-			m_TickDownTime--;
-		}else{
-			// hide spawning text
-			CancelQueueTime();
-			ClientSpawningFinished(newChar);
-		}
-	}
-	
-	/*
-		Tells the game to let server know that we are ready to spawn in: `StoreCTXData` does exactly that
-	*/
-	override void ClientSpawningFinished(bool newChar)
-	{
-		// tell game to continue
-		StoreCTXData(newChar);
-		
-		//Toggles logo (loading screen)
-		Mission mission = GetMission();
-		
-		if ( mission && m_IsPlayerSpawning )
-		{
-			m_loading = new LoadingScreen(this);
-			m_loading.Show();
-			m_loading.SetTitle("Loading: Please wait...");
-			m_IsPlayerSpawning = false;
-		}
-	}
-
-	/*
-		Kills the timer loop
-	*/
-	override void CancelQueueTime()
-	{
-		GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(this.ClientSpawning);
 	}
 
 	/*
@@ -162,7 +66,6 @@ modded class DayZGame
 		ref Param spawnParamsClass = new Param1<ref SpawnParams>(GetSpawnParams());
 		params.Insert(spawnParamsClass);
 
-		GetGame().StoreLoginData(params); //This param is handled at server, this MUST match with server!
 		if (newChar){
 			GetRPCManager().SendRPC( "RPC_HandleSpawnEvent", "HandleSpawnEvent", new Param1<ref SpawnParams>(GetSpawnParams()), true); //call to spawn gear
 		}

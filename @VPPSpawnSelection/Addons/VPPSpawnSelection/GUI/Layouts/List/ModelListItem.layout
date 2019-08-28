@@ -1,0 +1,47 @@
+PanelWidgetClass model_panel {
+ position 0 0
+ size 58 58
+ hexactpos 0
+ vexactpos 0
+ hexactsize 1
+ vexactsize 1
+ style blank
+ {
+  ImageWidgetClass model_image {
+   visible 1
+   inheritalpha 0
+   ignorepointer 0
+   size 0.9 0.9
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   image0 "set:vppss_models image:SurvivorM_Mirek"
+   mode blend
+   "src alpha" 1
+   "no wrap" 1
+   stretch 1
+  }
+  ImageWidgetClass selected_image {
+   visible 1
+   inheritalpha 0
+   ignorepointer 0
+   color 0.7059 0.7059 0.7059 1
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   image0 "set:vppss_icons image:frame"
+   mode blend
+   "src alpha" 1
+   "no wrap" 1
+   stretch 1
+  }
+ }
+}

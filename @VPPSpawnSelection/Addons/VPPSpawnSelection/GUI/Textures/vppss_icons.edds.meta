@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{A2D06BE8412361E2}MultiplayerGame/VPPSpawnSelection/Addons/VPPSpawnSelection/GUI/Textures/vppss_icons.edds"
+ Author "desktop-3ni2ega"
+ ChangeDate -1069717742
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "vppss_icons.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}
